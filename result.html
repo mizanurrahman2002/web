@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Submission Result</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1e1e1e;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 400px;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            text-align: center;
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        p {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .result-info {
+            margin-bottom: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #333;
+        }
+
+        .result-info span {
+            color: #ff7e5f;
+        }
+
+        .back-button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #ff7e5f;
+            color: #fff;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #feb47b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Form Submission Result</h2>
+        <div class="result-info">
+            <p><strong>Name:</strong> <span id="name"></span></p>
+            <p><strong>Email:</strong> <span id="email"></span></p>
+            <p><strong>Mobile:</strong> <span id="mobile"></span></p>
+            <p><strong>City:</strong> <span id="city"></span></p>
+        </div>
+        <button class="back-button" onclick="window.location.href='index.html'">Back to Form</button>
+    </div>
+
+    <script>
+        // Retrieve data from URL parameters
+        var data = window.location.search;
+        var params = new URLSearchParams(data);
+
+        // Display data in result page
+        document.getElementById("name").innerText = params.get("name");
+        document.getElementById("email").innerText = params.get("email");
+        document.getElementById("mobile").innerText = params.get("mobile");
+        document.getElementById("city").innerText = params.get("city");
+    </script>
+</body>
+</html>
